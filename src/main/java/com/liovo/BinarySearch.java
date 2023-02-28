@@ -62,7 +62,6 @@ public class BinarySearch {
     public static void main(String[] args) throws InterruptedException {
         long startTime = System.nanoTime();
         int[] nums = {7,13,21,30,38,44,52,54,90,91,92,93,94,95,96,97,98};
-//        Thread.sleep(100);
         System.out.println("now:"+binarySearchBasic(nums,91));
         long endTime = System.nanoTime();
         System.out.println(endTime-startTime);
