@@ -37,8 +37,9 @@ public class BinarySearch {
             }else {
                 return m;
             }
+
         }
-        return -1;
+        return i;
     }
 
 //    改进版2
@@ -59,10 +60,31 @@ public class BinarySearch {
         }
     }
 
+//    求元素左坐标
+    public static int binarySearchLeft4(int[] nums,int target){
+        int i = 0 , j= nums.length-1; //设置指针和初始值
+//        设置暂时值
+        int data = -1;
+        while (i<=j){
+            int m = (i+j)>>1;
+            if (target<nums[m]){  //若目标在左边
+                j = m - 1;
+            }else if (target> nums[m]){
+                i = m + 1;
+            }else {
+                data = m;
+                j = m-1;//m+1查右边
+//                return m;
+            }
+
+        }
+        return data;
+    }
+
     public static void main(String[] args) throws InterruptedException {
         long startTime = System.nanoTime();
-        int[] nums = {7,13,21,30,38,44,52,54,90,91,92,93,94,95,96,97,98};
-        System.out.println("now:"+binarySearchBasic(nums,91));
+        int[] nums = {7,13,21,30,38,44,52,54,90,91,92,93,94,95,96,97,99};
+        System.out.println("now:"+binarySearchBasic2(nums,98));
         long endTime = System.nanoTime();
         System.out.println(endTime-startTime);
     }
