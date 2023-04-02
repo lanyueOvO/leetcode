@@ -14,7 +14,7 @@ public class SinglyLinkedList {
         }
         Node p;
         for(p = head;p.next !=null; p=p.next){
-        }                                           //此for循环查找链表最后一个元素
+        }                                           //此for循环遍历得 查找链表最后一个元素
         return p;
     }
 
