@@ -107,20 +107,21 @@ public class RemoveList {
 
     /**
      * 给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。
-     * 递归反向拿到倒数值
+     * 递归反向拿到倒数值.删除头结点需要加哨兵
      */
     private int recursion(ListNode p,int val) {
         if (p == null) {
             return 0;
         }
-        System.out.println("----"+p.val);
+//        System.out.println("----"+p.val);
 //        递归拿到倒数列表
         int nth = recursion(p.next, val);
 
         if (nth == val){
-
+            //假如 p=3 p.next=4 p.next.next=5
+            p.next = p.next.next;
         }
-        System.out.println(p.val + " " +nth);
+//        System.out.println(p.val + " " +nth);
         return nth+1;
     }
 }
