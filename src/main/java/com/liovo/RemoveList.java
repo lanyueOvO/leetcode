@@ -54,7 +54,7 @@ public class RemoveList {
 //        RemoveList.ListNode o2 = new RemoveList.ListNode(7,o3);
 //        RemoveList.ListNode o1 = new RemoveList.ListNode(7,o2);
         RemoveList removeList = new RemoveList();
-        System.out.println(removeList.deleteDuplicatesAll2(o1));
+        System.out.println(removeList.deleteDuplicatesAll(o1));
 //        System.out.println(removeList.deleteDuplicates2(o1));
 //        new RemoveList().recursion(o1,2);
 //        System.out.println(removeList.remove2(o1, 7));
@@ -168,20 +168,23 @@ public class RemoveList {
      * 1 1 1 2 3
      */
     public ListNode deleteDuplicatesAll(ListNode head){
+        if (head == null || head.next==null) return head;
         ListNode s = new ListNode(-1, head);
-        ListNode p1 = s.next;
-        ListNode p2 = head.next;
+        ListNode p1 = s;
+//        ListNode p2 = p1.next;  //直接赋值会空指针
+//        ListNode p3 = p2.next;
+        ListNode p2,p3;
+        while ((p2=p1.next)!=null&&(p3=p2.next)!=null){
 
-        while (p1.next!=null&&p2.next!=null){
-
-            if (p1.next.val == p2.next.val){
+            if (p2.val == p3.val){
                 System.out.println("--"+p1+"+++"+p2);
+                while ((p3=p3.next)!=null&&p2.val == p3.val){
 
-                p1.next = p2.next.next;
-                p2 = p2.next.next;
+                }
+                p1.next = p3;
             }else {
                 p1 = p1.next;
-                p2 = p2.next;
+//                p2 = p2.next;
             }
 
         }
