@@ -24,8 +24,8 @@ public class E06LeetCode21 {
         RemoveList.ListNode x1 = new RemoveList.ListNode(6,x2);
         E06LeetCode21 e06LeetCode21 = new E06LeetCode21();
         RemoveList.ListNode[] lists = {o1,n1,x1};
-//        System.out.println(e06LeetCode21.mergeTwoLists(o1, n1));
-        e06LeetCode21.mergeKLists(lists);
+        System.out.println(e06LeetCode21.mergeTwoLists(o1, n1));
+//        e06LeetCode21.mergeKLists(lists);
     }
 
     /**
@@ -38,10 +38,11 @@ public class E06LeetCode21 {
      */
     public RemoveList.ListNode mergeTwoLists(RemoveList.ListNode list1, RemoveList.ListNode list2) {
         if (list1==null && list2==null) return null;
-        RemoveList.ListNode s = new RemoveList.ListNode(-1,list1);
+        RemoveList.ListNode s = new RemoveList.ListNode(0,list1);
         RemoveList.ListNode p1 = list1;
         RemoveList.ListNode p2 = list2;
         RemoveList.ListNode p = s;
+        System.out.println(p2);
         while (p1!=null && p2!=null){
             if (p1.val <= p2.val){
                 p.next = p1;  //谁小链接谁
@@ -53,6 +54,7 @@ public class E06LeetCode21 {
                 //                p1不用移动
             }
             p = p.next;
+            System.out.println(p);
         }
         if (p1 != null) p.next = p1;
 
