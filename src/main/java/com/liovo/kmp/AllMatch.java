@@ -28,6 +28,10 @@ public class AllMatch {
             }
         }
 //        条件模式串能加满的时候则为匹配成功,i-j为匹配的起始下标
-        if (j==bl) System.out.println(i-j);
+        if (j==bl) {
+            System.out.println(i-j);
+        }else {
+            System.out.println(-1);
+        }
     }
 }
